@@ -3,10 +3,12 @@ package com.labs.memberservice.service;
 import com.labs.memberservice.domain.Member;
 import com.labs.memberservice.repository.MemberRepository;
 import com.labs.memberservice.repository.MemoryMemberRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
