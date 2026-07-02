@@ -1,6 +1,7 @@
 package com.labs.memberservice;
 
 import com.labs.memberservice.repository.JdbcMemberRepository;
+import com.labs.memberservice.repository.JdbcTemplateMemberRepository;
 import com.labs.memberservice.repository.MemberRepository;
 import com.labs.memberservice.repository.MemoryMemberRepository;
 import com.labs.memberservice.service.MemberService;
@@ -13,9 +14,8 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private DataSource dataSource;
+    private final DataSource dataSource;
 
-    @Autowired
     SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -28,6 +28,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository() {
         // return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+        // return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
